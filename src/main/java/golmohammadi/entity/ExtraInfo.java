@@ -67,4 +67,9 @@ public class ExtraInfo implements Serializable {
         result = 31 * result + (extraValue != null ? extraValue.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return extraKey+":"+extraValue+" | ";
+    }
 }

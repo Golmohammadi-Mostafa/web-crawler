@@ -38,9 +38,9 @@ public class CrawlerSqliteApplicationTests {
     @Test
     public void testCrawledResult() {
         Iterable<Product> products = productRepository.findAll();
-        for(Product product:products){
-            System.out.println(product);
-        }
+        products.forEach(item -> {
+            System.out.println(item);
+        });
 
     }
 

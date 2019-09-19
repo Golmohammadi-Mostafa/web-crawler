@@ -22,7 +22,7 @@ public class Product implements Serializable{
     @JoinColumn(name = "link_add_id")
     LinkAddress linkAddress;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "product_extra",
             joinColumns = @JoinColumn(name = "pid"),
@@ -90,14 +90,23 @@ public class Product implements Serializable{
         this.extraInfos = extraInfos;
     }
 
+    /*    @Override
+        public String toString() {
+            return "Product{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    ", price='" + price + '\'' +
+                    ", description='" + description + '\'' +
+                    ", linkAddress=" + linkAddress +
+                    '}';
+        }*/
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price='" + price + '\'' +
-                ", description='" + description + '\'' +
-                ", linkAddress=" + linkAddress +
-                '}';
+        return "+++++++++++++++++++++++++++++++++++++++++++ P R O D U C T +++++++++++++++++++++++++++++++++++++++++++\n" +
+                "\n Name:" + name +
+                "\n Price:" + price +
+                "\n Description:" + description +
+                "\n Extra information:" + extraInfos.toString() +
+                "\n";
     }
 }
